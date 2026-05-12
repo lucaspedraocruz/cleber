@@ -1,79 +1,130 @@
-/* Paleta de Cores e Estilo Geral */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+
 :root {
-    --cor-fundo: #050505;          /* Preto Espacial */
-    --cor-primaria: #1e1e2f;       /* Azul Escuro Metálico */
-    --cor-secundaria: #6c5ce7;     /* Roxo Neon */
-    --cor-destaque: #ffce00;       /* Dourado (Estrelas/Contador) */
-    --cor-texto: #ffffff;          /* Branco */
-    --cor-borda: #3d3d5e;
+    --cor-de-fundo: #b9db78;
+    --verde: #e011ad;
+    --branco: #ffe600;
+    --botao-ativo: #1b74e9;
+    --botao-inativo: rgba(87, 6, 6, 0.993);
+    --texto-fundo: #17dd38ad;
 }
 
 body {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-de-fundo);
+    color: var(--branco);
+    font-family: 'Chakra Petch', sans-serif;
 }
 
-.conteudo-principal {
-    background: linear-gradient(145deg, #0f0f1a, #1e1e2f);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(108, 92, 231, 0.2);
+
+.conteudo-principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-.titulo-principal {
-    color: var(--cor-texto);
+.titulo-principal{
+    text-align: left;
+    width: 100%;
+    font-size: 32px;
 }
 
 .titulo-principal span {
-    color: var(--cor-secundaria);
+    color: var(--verde);
 }
 
-/* Botões das Abas */
-.botao {
-    background-color: var(--cor-primaria);
-    color: var(--cor-texto);
-    border: 1px solid var(--cor-borda);
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: 0.3s;
+.botoes{
+    display: block;
 }
 
-.botao.ativo {
-    background-color: var(--cor-secundaria);
-    border-color: var(--cor-secundaria);
-    box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+@media screen and (min-width: 768px) {
+    .botoes{
+        display: flex;
+    }
+    .botao:first-child{
+        border-radius: 40px 0 0 0;
+    }
+    .botao:last-child{
+        border-radius: 0 40px 0 0;
+    }
 }
 
-/* Conteúdo das Abas */
-.aba-conteudo-titulo-principal {
-    color: var(--cor-secundaria);
+.botao{
+    font-family: "CraKra Petch", sans-serif;
+    background-color: var(--botao-inativo);
+    color: var(--branco);
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    font-size: 18px;
+    align-items: center;
+    width: 100%;
+    border-bottom: 4px solid var(--botao-ativo);
+    border-left: 2px solid var(--botao-ativo);
+    border-right: 2px solid var(--botao-ativo);
+    border-top: none;
 }
 
-.aba-conteudo-titulo-secundario {
-    color: #a0a0ba; /* Cinza azulado */
+.abas-textos{
+    background-color: var(--texto-fundo);
+    padding: 40px;
+    border-radius: 0 0 40px 40px;
 }
 
-/* Estilização do Contador */
-.contador-digito-numero {
-    color: var(--cor-destaque);
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(255, 206, 0, 0.4);
+.botao.ativo{
+    background-color: var(--botao-ativo);
+    border-bottom: 4px solid var(--verde);
 }
 
-.contador-digito-texto {
-    color: var(--cor-texto);
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    opacity: 0.8;
+.aba-conteudo.ativo{
+    display: block;
+    align-items: center;
 }
 
-/* Esconder abas inativas (Lógica padrão) */
-.aba-conteudo {
+.aba-conteudo{
     display: none;
 }
 
-.aba-conteudo.ativo {
+.aba-imagem{
+    width: 150px;
+    align-items: center;
     display: block;
+    margin: 0 auto;
+}
+
+.aba-conteudo-titulo-principal{
+    font-size: 28px;
+    text-align: center;
+}
+
+.aba-conteudo-titulo-secundario{
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+}
+
+.contador{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contador-digito{
+    padding: 0 16px;
+    text-align: center;
+    min-width: 100px;
+}
+
+.contador-digito-numero{
+    font-size: 80px;
+    margin: 0;
+}
+
+.contador-digito-texto{
+    color: black;
+    font-size: 20px;
+    margin: 0;
 }
